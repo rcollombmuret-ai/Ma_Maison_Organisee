@@ -19,3 +19,5 @@ Ouvrir `index.html` dans un navigateur. Pour tester l'installation PWA, il faut 
 1. Ouvrir l'adresse du site dans Safari.
 2. Appuyer sur Partager.
 3. Choisir « Sur l'écran d'accueil ».
+
+Publication du site Ma Maison Organisée.
