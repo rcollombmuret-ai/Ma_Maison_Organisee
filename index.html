@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff8f2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ma Maison">
+<link rel="manifest" href="manifest.json">
+<title>Ma Maison Organisée</title>
+<style>
+:root{--pink:#e8bfc8;--lilac:#e7ddf5;--cream:#fff8f2;--blue:#d9eaf7;--ink:#624b70;--muted:#927d96;--white:#fff;--line:#f0e3e8}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:22px 18px 14px;display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:var(--lilac);display:grid;place-items:center;font-size:25px}h1{font-size:22px;margin:0}header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+main{max-width:760px;margin:auto;padding:0 14px 100px}.hello{background:linear-gradient(125deg,#f4dfe5,#e7ddf5 60%,#d9eaf7);border-radius:22px;padding:20px;margin-bottom:16px}.hello small{letter-spacing:.08em;color:#806b87}.hello h2{margin:8px 0 5px;font-size:24px}.hello p{margin:0;color:#806b87}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{border:1px solid var(--line);border-radius:18px;background:white;padding:15px 13px;text-align:left;color:var(--ink);min-height:112px;cursor:pointer}.tile .emoji{font-size:24px;display:block;margin-bottom:9px}.tile strong{display:block;font-size:15px}.tile span:last-child{font-size:12px;color:var(--muted);display:block;margin-top:5px}
+.panel{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:17px;margin-top:16px}.panel.active{display:block}.panel h2{margin:0 0 12px;font-size:20px}.formrow{display:flex;gap:8px;margin-bottom:12px}.formrow input,.formrow select,.formrow textarea{min-width:0;flex:1;border:1px solid #e8dce8;border-radius:12px;padding:12px;font:inherit;background:#fffdfc;color:var(--ink)}button.primary{background:var(--ink);color:white;border:0;border-radius:12px;padding:12px 14px;font-weight:600;cursor:pointer}.item{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.item label{flex:1;overflow-wrap:anywhere}.item.done label{text-decoration:line-through;color:#b4a6b7}.delete{border:0;background:transparent;color:#b56e85;font-size:18px;padding:5px}.empty{color:var(--muted);font-size:14px;padding:10px 0}.finance-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.finance-card{background:#fff8fc;border:1px solid var(--line);border-radius:14px;padding:12px}.finance-card small{display:block;color:var(--muted);font-size:12px}.finance-card strong{display:block;margin-top:5px;font-size:18px;overflow-wrap:anywhere}.finance-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.finance-fields input,.finance-fields select{min-width:0;width:100%;border:1px solid #e8dce8;border-radius:12px;padding:12px;font:inherit;background:#fffdfc;color:var(--ink)}.finance-fields .wide{grid-column:1/-1}.finance-note{font-size:12px;color:var(--muted);margin:10px 0}.back{border:0;background:var(--lilac);color:var(--ink);border-radius:10px;padding:9px 12px;margin-bottom:12px}
+footer{position:fixed;bottom:0;left:0;right:0;background:#fffaf7ee;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:11px 16px calc(11px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-size:12px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hello{padding:26px}}
+</style>
+</head>
+<body>
+<header><div class="logo">♡</div><div><h1>Ma Maison Organisée</h1><p>Mon quotidien, tout en douceur</p></div></header>
+<main>
+<section class="hello" id="welcome"><small>MON PETIT ESPACE À MOI</small><h2>Bonjour 🌸</h2><p>Un pas après l’autre, organisons la journée.</p></section>
+<section class="grid" id="menu">
+<button class="tile" data-section="agenda"><span class="emoji">🗓️</span><strong>Mon agenda</strong><span>Rendez-vous & dates clés</span></button>
+<button class="tile" data-section="courses"><span class="emoji">🛍️</span><strong>Mes courses</strong><span>Ma liste à cocher</span></button>
+<button class="tile" data-section="stock"><span class="emoji">🧊</span><strong>Frigo & placards</strong><span>Mes provisions</span></button>
+<button class="tile" data-section="recettes"><span class="emoji">🍰</span><strong>Mes recettes</strong><span>Mes idées de repas</span></button>
+<button class="tile" data-section="taches"><span class="emoji">☑️</span><strong>Mes tâches</strong><span>Mes priorités</span></button>
+<button class="tile" data-section="routines"><span class="emoji">🔁</span><strong>Mes routines</strong><span>Mes habitudes</span></button>
+<button class="tile" data-section="anniversaires"><span class="emoji">🎂</span><strong>Anniversaires</strong><span>Les dates à retenir</span></button>
+<button class="tile" data-section="finances"><span class="emoji">💶</span><strong>Mes finances</strong><span>Budget, revenus & dépenses</span></button>
+</section>
+<section class="panel" id="panel"><button class="back" id="back">← Accueil</button><h2 id="panelTitle"></h2><form id="addForm"><div class="formrow" id="fields"></div><button class="primary" type="submit">＋ Ajouter</button></form><div id="items"></div></section>
+</main>
+<footer>💗 Rose poudré · 💜 Lilas · 🤍 Crème · 🩵 Bleu ciel</footer>
+<script>
+const sections={
+ agenda:{title:"Mon agenda",placeholder:"Ex. Rendez-vous médecin",date:true},
+ courses:{title:"Mes courses",placeholder:"Ex. Lait, pommes"},
+ stock:{title:"Frigo & placards",placeholder:"Ex. Œufs — quantité : 6"},
+ recettes:{title:"Mes recettes",placeholder:"Ex. Gratin de légumes"},
+ taches:{title:"Mes tâches",placeholder:"Ex. Lancer une lessive"},
+ routines:{title:"Mes routines",placeholder:"Ex. Préparer les affaires du lendemain"},
+ anniversaires:{title:"Mes anniversaires",placeholder:"Ex. Sophie",date:true},
+ finances:{title:"Mes finances",placeholder:"Description de la dépense"}
+};
+let current=""; let data=load();
+function load(){try{return JSON.parse(localStorage.getItem("mmm-data")||"{}")}catch(e){return {}}}
+function save(){localStorage.setItem("mmm-data",JSON.stringify(data))}
+function openSection(key){current=key;document.getElementById("menu").style.display="none";document.getElementById("welcome").style.display="none";let p=document.getElementById("panel");p.classList.add("active");document.getElementById("panelTitle").textContent=sections[key].title;let form=document.getElementById("addForm");let fields=document.getElementById("fields");if(key==="finances"){form.innerHTML='<div class="finance-fields"><input id="financeText" class="wide" required maxlength="180" placeholder="Ex. Courses, électricité…"><select id="financeType" aria-label="Type"><option value="depense">Dépense</option><option value="revenu">Revenu</option></select><select id="financeCategory" aria-label="Catégorie"><option>Courses</option><option>Logement</option><option>Factures</option><option>Transport</option><option>Santé</option><option>Loisirs</option><option>Revenus</option><option>Autre</option></select><input id="financeAmount" type="number" min="0.01" step="0.01" required placeholder="Montant (€)"><input id="financeDate" type="date" aria-label="Date"></div><button class="primary" type="submit">＋ Ajouter l’opération</button><div class="finance-note">Les montants sont enregistrés sur cet appareil pour le moment. La synchronisation entre appareils sera configurée séparément.</div><div id="financeSummary"></div><div id="items"></div>';form.onsubmit=addFinance;renderFinance();return;}form.innerHTML='<div class="formrow" id="fields"></div><button class="primary" type="submit">＋ Ajouter</button>';fields=document.getElementById("fields");fields.innerHTML='<input id="newText" required maxlength="180" placeholder="'+sections[key].placeholder+'">';if(sections[key].date)fields.innerHTML+='<input id="newDate" type="date" aria-label="Date">';form.onsubmit=addItem;render()}
+function euro(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(n||0)}
+function renderFinance(){if(current!=="finances")return;let arr=data.finances||[];let month=new Date().toISOString().slice(0,7);let monthly=arr.filter(x=>(x.date||"").slice(0,7)===month);let expenses=monthly.filter(x=>x.type==="depense").reduce((s,x)=>s+Number(x.amount||0),0);let income=monthly.filter(x=>x.type==="revenu").reduce((s,x)=>s+Number(x.amount||0),0);let budget=Number(data.financeBudget||0);let summary=document.getElementById("financeSummary");summary.innerHTML='<div class="finance-fields"><input id="financeBudget" type="number" min="0" step="0.01" placeholder="Budget mensuel (€)" value="'+(budget||"")+'"><button class="primary" type="button" id="saveBudget">Enregistrer le budget</button></div><div class="finance-summary"><div class="finance-card"><small>Revenus du mois</small><strong>'+euro(income)+'</strong></div><div class="finance-card"><small>Dépenses du mois</small><strong>'+euro(expenses)+'</strong></div><div class="finance-card"><small>Solde du mois</small><strong>'+euro(income-expenses)+'</strong></div><div class="finance-card"><small>Budget restant</small><strong>'+(budget?euro(budget-expenses):"Non défini")+'</strong></div></div>';document.getElementById("saveBudget").onclick=()=>{data.financeBudget=Math.max(0,Number(document.getElementById("financeBudget").value||0));save();renderFinance()};let box=document.getElementById("items");box.innerHTML="";if(!arr.length){box.innerHTML='<div class="empty">Aucune opération pour le moment. Ajoute ta première dépense ou ton premier revenu 🌷</div>';return}arr.slice().reverse().forEach((it,revIndex)=>{let i=arr.length-1-revIndex;let row=document.createElement("div");row.className="item";let label=document.createElement("label");label.textContent=(it.type==="revenu"?"＋ ":"− ")+it.text+" · "+(it.category||"Autre")+" · "+euro(Number(it.amount||0))+(it.date?" · "+it.date:"");let del=document.createElement("button");del.className="delete";del.textContent="×";del.setAttribute("aria-label","Supprimer");del.onclick=()=>{data.finances.splice(i,1);save();renderFinance()};row.append(label,del);box.append(row)})}
+function addFinance(e){e.preventDefault();let text=document.getElementById("financeText").value.trim();let amount=Number(document.getElementById("financeAmount").value);if(!text||!Number.isFinite(amount)||amount<=0)return;data.finances=data.finances||[];data.finances.push({text,amount,type:document.getElementById("financeType").value,category:document.getElementById("financeCategory").value,date:document.getElementById("financeDate").value||new Date().toISOString().slice(0,10)});save();e.target.reset();renderFinance()}
+function addItem(e){e.preventDefault();let text=document.getElementById("newText").value.trim();if(!text)return;let date=document.getElementById("newDate")?.value||"";data[current]=data[current]||[];data[current].push({text,date,done:false});save();e.target.reset();render()}
+function render(){if(current==="finances"){renderFinance();return}let box=document.getElementById("items");box.innerHTML="";let arr=data[current]||[];if(!arr.length){box.innerHTML='<div class="empty">Ta liste est vide pour le moment. Tu peux ajouter le premier élément 🌷</div>';return}arr.forEach((it,i)=>{let row=document.createElement("div");row.className="item"+(it.done?" done":"");let cb=document.createElement("input");cb.type="checkbox";cb.checked=!!it.done;cb.setAttribute("aria-label","Terminé");cb.onchange=()=>{it.done=cb.checked;save();render()};let label=document.createElement("label");label.textContent=it.text+(it.date?" — "+it.date:"");let del=document.createElement("button");del.className="delete";del.textContent="×";del.setAttribute("aria-label","Supprimer");del.onclick=()=>{data[current].splice(i,1);save();render()};row.append(cb,label,del);box.append(row)})}
+document.querySelectorAll("[data-section]").forEach(b=>b.onclick=()=>openSection(b.dataset.section));
+document.getElementById("back").onclick=()=>{document.getElementById("panel").classList.remove("active");document.getElementById("menu").style.display="grid";document.getElementById("welcome").style.display="block"};
+document.getElementById("addForm").onsubmit=addItem;
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js").catch(()=>{});
+</script>
+</body></html>

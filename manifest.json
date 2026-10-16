@@ -1,0 +1,11 @@
+{
+  "name": "Ma Maison Organisée",
+  "short_name": "Ma Maison",
+  "lang": "fr-FR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff8f2",
+  "theme_color": "#fff8f2",
+  "description": "Mon agenda et mes listes de maison, tout en douceur.",
+  "icons": []
+}
